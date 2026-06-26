@@ -1,6 +1,7 @@
 # 项目骨架（复制即用）
 
-> 多 thread 的布局。单 thread 项目把 `threads/T1/` 的内容平铺到根即可（手册 §2「优雅伸缩」）。
+> **先 STEP-0 盘点，别整套硬铺**（手册 §7 STEP-0）：通用 MVP = `CHARTER · STATE · DECISIONS · JOURNAL`，**每个项目都要**；`threads/` 容器、`tasks/`、单源台账、文档治理只在 STEP-0 盘出"该 role 还没人填"时才补。已被治理的 repo 只补缺口。
+> 下面是 **threads 容器（默认 profile）** 的多 thread 布局——其他容器（job-queue / kanban / solo）见手册「Profiles 矩阵」，SPEC/LOG/RESULT 语义不变。单 thread 项目把 `threads/T1/` 的内容平铺到根即可。
 > 工单/回执模板见同目录 `TASK.md`、`RESULT.md`。
 
 ```
