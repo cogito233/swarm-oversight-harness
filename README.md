@@ -34,6 +34,8 @@ git submodule update --init --remote     # 协作者 clone 你的项目后，拉
   - `PROJECT_SKELETON.md` — 项目骨架（CHARTER / JOURNAL / STATE / DECISIONS + 各 thread 的 SPEC·LOG 内联模板）
   - `TASK.md` — 任务分发工单（plan → 执行 agent）
   - `RESULT.md` — 结果回执（执行 agent → plan）
+- **`playbooks/`** — profile 特定的收口闸 playbook（慢层，跨项目不变）
+  - `paper-writing.md` — 用 code agent 写研究 / benchmark 论文的「投稿前编辑 pass」（research profile）。可调用入口：skill `paper-writing`
 
 ## 适用边界
 
