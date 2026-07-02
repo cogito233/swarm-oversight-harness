@@ -10,6 +10,7 @@ project/
   JOURNAL.md            # 人 · 每天    · 剧情(给人看，不是流水账)
   STATE.md              # plan · 实时  · 交付看板(给调度看)
   DECISIONS.md          # 人 · 只追加  · 重大决策(ADR)
+  LOCAL_RULES.md        # 可选 · 本地规则捕获点(手册 §9)，模板: templates/LOCAL_RULES.md
   threads/
     T1-<slug>/
       SPEC.md           # 人+plan · 稳定 · 这条线的长期契约
@@ -29,6 +30,7 @@ project/
 为什么做: <动机 / 这个项目存在的理由>
 non-goals: <明确不做什么>
 铁约束: <资源 / 时间 / 不可逾越的边界>
+built_against: manual v<X.Y>   ← 手册 §9，升级 submodule 时同步改
 ```
 
 ---

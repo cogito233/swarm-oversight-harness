@@ -24,18 +24,26 @@ git submodule update --init --remote     # 协作者 clone 你的项目后，拉
 
 **3. 先填两样再开跑**：`CHARTER`（为什么 + 北极星）和第一个工作单元的 `SPEC`（目标 + 文件边界 + 验收 criteria + 逃逸条件）。然后照手册 §3 的闭环转：拆分 → 并行执行（容器=profile 选）→ 验证 → 收口 → 对齐 → 下一轮。
 
-> 开工前对一遍 [`00_operating_manual.md`](00_operating_manual.md) 末尾的 checklist。
+> 开工前对一遍 [`MANUAL.md`](MANUAL.md) §7 的 checklist。
 > 拿不准「这活该不该上这套」，看手册 §1 的 misc-vs-project 表 + 「适用边界」。
 
 ## 文件
 
-- **[`00_operating_manual.md`](00_operating_manual.md)** — 手册本体：一图流、通用核心 + Profiles 矩阵、术语表、文档体系、控制回路、审查/采纳（采纳 = 跨信任边界晋升）、断路器、产能、checklist、§8 文档治理 / 防漂移。
+- **[`MANUAL.md`](MANUAL.md)** — 手册本体（版本化 canon）：一图流、通用核心 + Profiles 矩阵、术语表、文档体系、控制回路、审查/采纳（采纳 = 跨信任边界晋升）、断路器、产能、checklist、§8 文档治理 / 防漂移、§9 分发与上游化。
 - **`templates/`**
   - `PROJECT_SKELETON.md` — 项目骨架（CHARTER / JOURNAL / STATE / DECISIONS + 各 thread 的 SPEC·LOG 内联模板）
   - `TASK.md` — 任务分发工单（plan → 执行 agent）
   - `RESULT.md` — 结果回执（执行 agent → plan）
+  - `LOCAL_RULES.md` — 项目本地规则捕获点（每条标 `upstream-candidate` / `project-specific`，见手册 §9）
 - **`playbooks/`** — profile 特定的收口闸 playbook（慢层，跨项目不变）
   - `paper-writing.md` — 用 code agent 写研究 / benchmark 论文的「投稿前编辑 pass」（research profile）。可调用入口：skill `paper-writing`
+- **`examples/`** — 判例库：锚定已有原则的真实项目快照（描述性非规范性，契约见 `examples/README.md`）
+- **`DECISIONS.md` / `CHANGELOG.md`** — 本仓库自身的 ADR 台账与版本史（手册按自己定义的规则治理）
+
+## 版本与上游化（手册 §9）
+
+- **下行**：项目 submodule pin 版本，CHARTER 记 `built against manual vX.Y`；升级 = 显式 `submodule update` + 读 CHANGELOG。
+- **上行**：项目里长出的规则进该项目的 `LOCAL_RULES.md`（pattern 高度），标 `upstream-candidate` 的定期 sweep 回本仓库，人裁决分流（核心 / profile / playbook / 判例 / 留守），过闸记 ADR。
 
 ## 适用边界
 

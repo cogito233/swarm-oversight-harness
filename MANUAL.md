@@ -1,3 +1,11 @@
+---
+tier: canon
+manual_version: 1.0.0
+verified_at: 2026-07-02
+verifier: ruobai
+decay: banner-date
+---
+
 # Agent 工作流操作手册
 
 > **核心命题**：AI 执行近乎免费，所以项目的持久实体是**一套文档**，agent（包括 plan agent）是可随时替换的肌肉。你的真实产能不看烧了多少 token，看**每天签字采纳了几份**。这份手册只讲两件事：**放哪些文档、各装什么**，以及**人和 agent 怎么绕着这些文档转一个闭环**。
@@ -207,7 +215,7 @@ project/
 
 ## 7. 开工 checklist
 
-- [ ] **STEP 0 · 盘点已有 → 只补缺口**：先拿 role 清单（CHARTER / JOURNAL / STATE / DECISIONS / 单源台账 / 验证闸 / §8 文档治理）逐项对照本 repo，**只创建缺失的 role**。已被治理的 repo **严禁硬套整套骨架**——补缺即可，别推翻重铺。
+- [ ] **STEP 0 · 盘点已有 → 只补缺口**：先拿 role 清单（CHARTER / JOURNAL / STATE / DECISIONS / 单源台账 / 验证闸 / §8 文档治理 / LOCAL_RULES §9）逐项对照本 repo，**只创建缺失的 role**。已被治理的 repo **严禁硬套整套骨架**——补缺即可，别推翻重铺。
 - [ ] 有 CHARTER（为什么）+ JOURNAL（剧情）+ STATE 看板，三者不混？
 - [ ] 每条 thread 有独立 SPEC 和 LOG？
 - [ ] 工作单元拆到了文件正交、互不抢文件？隔离按需（共享同一可变产物才上 worktree，否则 per-unit LOG 即可，见 §2③）？
@@ -249,6 +257,33 @@ quarantine:   <true 时豁免 freshness，显式标注"已知过期/存档">
 
 **关键陷阱**：`git-edit-decay` 假设"让文档失效的事件都在 git 里"。当结果落在 **gitignored / 外部存储**（典型：训练 repo 的 eval 分数、checkpoint），git 里永远没有对应 commit → 这个插件**永远不触发、静默失效**。这类 profile 必须改用 `banner-date` 或 `external-results-hook`。
 
+## 9. 分发与上游化：主仓库 ↔ 项目的双向协议
+
+本仓库自己也是一个 project：MANUAL 是它的 canon，各运行中项目长出的本地规则是 working finding，晋升进本仓库同样走「采纳 = 跨信任边界」——由人 gate、记 ADR（本仓库 `DECISIONS.md`）。
+
+**下行（分发）**：项目以 git submodule 引用本仓库并 pin 版本，只实例化 `templates/`，**不 fork 手册**。MANUAL 头部带版本号：不变量改动 = major，profile / playbook / 模板增改 = minor，判例与措辞 = patch。项目在 CHARTER 记一行 `built against manual vX.Y`；升级是显式动作（`submodule update` + 读 CHANGELOG 迁移注记）——这样 manual 一进化，立刻可查哪些项目落后。
+
+**上行（学习），四段漏斗**：
+
+1. **Capture（项目内）**——运行中长出的本地规则**一律进项目的 `LOCAL_RULES.md`**（模板见 `templates/`），不散进 README / 散文；每条标 `project-specific` 或 `upstream-candidate`。**记 pattern 不记 incident**：写「实验臂一律用承载内容的名词命名、禁用位置字母——位置引用跨 context 必丢义」，不写「这次别再写 ABCD」。incident 记进条目的 `born_from` 字段做 provenance。
+2. **Nominate（sweep）**——**默认触发点 = 给某项目升级 submodule 时**（下行动作顺带上行，不引入新节奏；也可由治理 job 定期跑）：扫该项目 LOCAL_RULES 里的 `upstream-candidate`，收进本仓库 `INBOX.md`（= 本仓库的 STATE·待采纳队列 role，**首次 sweep 时才创建**）。去重对象是**所有裁决过的候选**（含 rejected，靠第 4 步的 status 回写），不只是现行条款。
+3. **Adjudicate（人裁决）**——先劈**新颖性一刀**，再查路由表（下）。过闸记一条 ADR：来自哪个项目、为什么、落到哪。
+4. **Redistribute（回流）**——bump 版本 + CHANGELOG；**裁决结果回写来源项目的 LOCAL_RULES**（`promoted@vX.Y` / `rejected` + 一句话理由）——没有这一步，同一条会被反复提名、漏斗永不收敛；项目下次 `submodule update` 拿到新版本。闭环合上。
+
+**新颖性一刀（先于路由表）**：候选是**全新原则**，还是**已有原则的新实例**？是实例 → 落 `examples/` 或模板 checklist 项，**绝不新增规则条款**——§8 的单源轴同样约束手册自己：同一原则不许换件衣服再出现一遍。
+
+**路由表（按序问，命中即落）**：
+
+| 判据 | 落点 | 预期频率 |
+|---|---|---|
+| 跨所有 profile 成立的不变量？ | MANUAL 正文 | 极少 |
+| 只对某类项目成立？ | profile 插头（矩阵一行；插头超一行才抽 `profiles/<x>.md`） | 主要落点 |
+| 多步骤方法论、按需调用？ | `playbooks/` | 偶尔 |
+| 某条已有原则的完美实例？ | `examples/` + 锚定（契约见 `examples/README.md`） | 常见 |
+| 都不是？ | 留在项目 LOCAL_RULES（**默认归宿，不是遗憾**） | 最多 |
+
+**健康指标是漏斗形**：MANUAL 正文的增速若超过 `examples/` 的增速，说明晋升闸失守——先修闸，再收规则。
+
 ---
 
-*本手册自身遵守它定义的规则：它在慢层、只含不变量；profile 特定的东西是**插头（命名 + 一行）**不是手册正文，任何项目特定内容都属于那个项目的 CHARTER/SPEC/STATE，不许写进这里。*
+*本手册自身遵守它定义的规则：它在慢层、只含不变量；profile 特定的东西是**插头（命名 + 一行）**不是手册正文，任何项目特定内容都属于那个项目的 CHARTER/SPEC/STATE，不许写进这里。手册自身的演化走 §9 的晋升闸：记 `DECISIONS.md`、按 `CHANGELOG.md` 版本化。*
