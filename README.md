@@ -22,7 +22,7 @@ git submodule update --init --remote     # 协作者 clone 你的项目后，拉
 **2. STEP-0 盘点 → 只补缺口**（手册 §7 STEP-0）。这套是**加法、可重入**：先拿 role 清单对照本 repo，**只创建缺失的**，已被治理的 repo 别硬套整套骨架。
 
 - **通用 MVP（每个项目都要）**：`CHARTER` · `STATE` · `DECISIONS` · `JOURNAL`。
-- **其余按 profile / 规模才补**：threads（=`templates/PROJECT_SKELETON.md` 的多 thread 布局）、单源台账、验证闸、文档治理（§8）、`templates/{TASK,RESULT}.md`、worktree —— 见手册「通用核心 + Profiles 矩阵」。socket × profile（research / experiments / product-eng / solo）查那张表选插头。
+- **其余按 profile / 规模才补**：threads（=`templates/PROJECT_SKELETON.md` 的多 thread 布局）、单源台账、验证闸、文档治理（§8）、`templates/{TASK,RESULT}.md`、worktree —— 见手册「通用核心 + Profiles 矩阵」。可变点 × profile（research / experiments / product-eng / solo）查那张表取值。
 
 **3. 先填两样再开跑**：`CHARTER`（为什么 + 北极星）和第一个工作单元的 `SPEC`（目标 + 文件边界 + 验收 criteria + 逃逸条件）。然后照手册 §3 的闭环转：拆分 → 并行执行（容器=profile 选）→ 验证 → 收口 → 对齐 → 下一轮。
 
