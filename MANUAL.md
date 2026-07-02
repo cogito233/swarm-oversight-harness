@@ -1,6 +1,6 @@
 ---
 tier: canon
-manual_version: 1.0.0
+manual_version: 1.1.0
 verified_at: 2026-07-02
 verifier: ruobai
 decay: banner-date
@@ -11,6 +11,10 @@ decay: banner-date
 > **核心命题**：AI 执行近乎免费，所以项目的持久实体是**一套文档**，agent（包括 plan agent）是可随时替换的肌肉。你的真实产能不看烧了多少 token，看**每天签字采纳了几份**。这份手册只讲两件事：**放哪些文档、各装什么**，以及**人和 agent 怎么绕着这些文档转一个闭环**。
 
 > **本手册属于慢层**：只写跨项目不变的规则，不写任何单个项目的具体内容（那些活在各项目的 CHARTER/SPEC/STATE 里）。如果它需要频繁改，说明混进了不该在这里的东西。
+
+> **最小上手面**：先记三个概念就能开工——①**脊柱**：文档比 agent 活得久，任何 agent 被杀都能从文档重建；②**两道闸**：人只出现在两处，上游写 SPEC（定 WHAT），下游签采纳（放行进 canon）；③**canon**：签过字的内容默认可信，永不复查。外加 4 份文档（CHARTER/STATE/DECISIONS/JOURNAL，见 §7）。**其余术语全是字典条目——撞到对应问题再查，不需要预习。**
+
+> **为什么是这个形状（开环 vs 闭环）**：纯闭环用法——给 AI 一个可验证目标、不管手段让它迭代到绿——最易上手所以被过度采用；但可验证的往往只是 proxy（测试通过），proxy 可被 game（删测试、假完成），闭环会收敛到错误的不动点，而你在环外，对系统的 grasp 每天流失，只能每天重读一遍代码库。纯开环——事事亲手指挥——受限于你的理解带宽。本手册取双环：**HOW 的内环由机器闭**（验收 criteria + 独立验证 + cycle 预算），**WHAT 的外环由人闭**（SPEC + 采纳），**文档是仪表盘**——让你不重读系统也保持 grasp。
 
 ---
 
@@ -51,7 +55,7 @@ decay: banner-date
 
 ## 通用核心 (MVP) + Profiles 矩阵
 
-本手册是 **通用核心 + 薄 profile**：核心不变，几个"插座"按 profile 换插头。先认两件事——
+本手册是 **通用核心 + 薄 profile**：核心不变，少数几个可变点按 profile 取值。先认两件事——
 
 **通用 MVP（每个项目都要这 4 份，不分 profile）**：
 
@@ -62,9 +66,9 @@ decay: banner-date
 
 其余一切（threads / 单源台账文件 / REDTEAM_LOG / DOC_SPEC / templates / worktree）都是 **profile / 规模相关**，只在 §7 STEP-0 盘点出"这个 role 还没人填"时才补。
 
-**Profiles 矩阵**（每行一个"插座"，每列一个 profile，格子里是该装的插头）：
+**Profiles 矩阵**（每行一个可变点，每列一个 profile，格子里是该 profile 的取值）：
 
-| 插座 | research | experiments | product-eng | solo |
+| 可变点 | research | experiments | product-eng | solo |
 |---|---|---|---|---|
 | 执行协调（容器） | threads | job-queue | threads+worktree | none |
 | 采纳边界 | finding→canon | run→current-best | branch→main | n/a |
@@ -73,7 +77,7 @@ decay: banner-date
 | freshness decay | git-edit-decay | banner-date | git-edit-decay | none |
 | 物理隔离 | skip（per-thread LOG） | per-job dir | worktree | n/a |
 
-> 两次真实落地校准了这张表：**swe-chains**（research）、**midtrain_exps**（experiments）。profile 的具体内容是**插头（命名 + 一行）**，不进手册正文；项目特定的东西活在 CHARTER/SPEC。
+> 两次真实落地校准了这张表：**swe-chains**（research）、**midtrain_exps**（experiments）。profile 的具体取值只需**命名 + 一行**，不进手册正文；项目特定的东西活在 CHARTER/SPEC。
 
 ## 1. 什么时候用这套（以及什么时候千万别用）
 
@@ -125,7 +129,7 @@ project/
 | `threads/T*/tasks/TASK-*.md` | plan 写 | 一次性 | 从 SPEC 拆出来、派给**单个**执行 agent 的一块具体活 |
 | `threads/T*/scratch/` | 执行 agent | 随意 | **非代码**草稿、原始数据、一次性实验产物。可丢、可重生成 |
 | 代码（主库） | 执行 agent | 高频 | 在主库**隔离分支/worktree**上改真代码；**采纳 = 合进 main**，不写进 scratch |
-| **单源台账**（role，非固定文件名） | plan / 口径 agent | 随结果 | **headline 数字 / 口径只存一处，别处一律链接**——research: 自建 NUMBERS；experiments: 原生 ABLATION + DATA registry；product-eng: metrics 文档。对应 §8 轴③「不冗余」。别强制叫 `NUMBERS.md`，用 repo 原生那份 |
+| **单源台账**（role，非固定文件名） | plan / 口径 agent | 随结果 | **headline 数字 / 口径只存一处，别处一律链接**——research: 自建 NUMBERS；experiments: 原生 ABLATION + DATA registry；product-eng: metrics 文档。对应 §8 的「不冗余」。别强制叫 `NUMBERS.md`，用 repo 原生那份 |
 
 三个容易混的地方，单独讲清：
 
@@ -228,7 +232,7 @@ project/
 
 ## 8. 文档治理 / 防漂移
 
-文档是项目的持久实体（核心命题），所以**文档烂 = 项目烂**。治理沿三根轴，缺一不可：
+文档是项目的持久实体（核心命题），所以**文档烂 = 项目烂**。治理要同时守住三条，缺一不可：
 
 - **① 事实对（freshness）**：文档说的和 ground truth 一致，没说过时的话。
 - **② 有用（reachability）**：每篇都从入口可达；**孤儿文档 = 必腐烂**（没人读 → 没人修 → 误导）。
@@ -245,7 +249,7 @@ numbers_from: <headline 数字的单源台账路径>       # 引别处的数必�
 quarantine:   <true 时豁免 freshness，显式标注"已知过期/存档">
 ```
 
-**linter + 人类真相铁律**：跑一个 linter 校验三根轴；**authority / control 类文档（人类据以决策的权威面）若既非 🟢(fresh) 又未 quarantine → 退出码 ≠ 0**。理由：人类看到的权威面**必须真实**，宁可显式 quarantine，也绝不许默默撒谎。
+**linter + 人类真相铁律**：跑一个 linter 校验这三条；**authority / control 类文档（人类据以决策的权威面）若既非 🟢(fresh) 又未 quarantine → 退出码 ≠ 0**。理由：人类看到的权威面**必须真实**，宁可显式 quarantine，也绝不许默默撒谎。
 
 **decay 信号必须可插拔**——用 `decay:` 旋钮选插件，因为"什么算让文档过期的事件"随 profile 而变：
 
@@ -263,27 +267,27 @@ quarantine:   <true 时豁免 freshness，显式标注"已知过期/存档">
 
 **下行（分发）**：项目以 git submodule 引用本仓库并 pin 版本，只实例化 `templates/`，**不 fork 手册**。MANUAL 头部带版本号：不变量改动 = major，profile / playbook / 模板增改 = minor，判例与措辞 = patch。项目在 CHARTER 记一行 `built against manual vX.Y`；升级是显式动作（`submodule update` + 读 CHANGELOG 迁移注记）——这样 manual 一进化，立刻可查哪些项目落后。
 
-**上行（学习），四段漏斗**：
+**上行（学习），四步：捕获 → 提名 → 裁决 → 回流**：
 
-1. **Capture（项目内）**——运行中长出的本地规则**一律进项目的 `LOCAL_RULES.md`**（模板见 `templates/`），不散进 README / 散文；每条标 `project-specific` 或 `upstream-candidate`。**记 pattern 不记 incident**：写「实验臂一律用承载内容的名词命名、禁用位置字母——位置引用跨 context 必丢义」，不写「这次别再写 ABCD」。incident 记进条目的 `born_from` 字段做 provenance。
-2. **Nominate（sweep）**——**默认触发点 = 给某项目升级 submodule 时**（下行动作顺带上行，不引入新节奏；也可由治理 job 定期跑）：扫该项目 LOCAL_RULES 里的 `upstream-candidate`，收进本仓库 `INBOX.md`（= 本仓库的 STATE·待采纳队列 role，**首次 sweep 时才创建**）。去重对象是**所有裁决过的候选**（含 rejected，靠第 4 步的 status 回写），不只是现行条款。
-3. **Adjudicate（人裁决）**——先劈**新颖性一刀**，再查路由表（下）。过闸记一条 ADR：来自哪个项目、为什么、落到哪。
-4. **Redistribute（回流）**——bump 版本 + CHANGELOG；**裁决结果回写来源项目的 LOCAL_RULES**（`promoted@vX.Y` / `rejected` + 一句话理由）——没有这一步，同一条会被反复提名、漏斗永不收敛；项目下次 `submodule update` 拿到新版本。闭环合上。
+1. **捕获（项目内）**——运行中长出的本地规则**一律进项目的 `LOCAL_RULES.md`**（模板见 `templates/`），不散进 README / 散文；每条标 `project-specific` 或 `upstream-candidate`。**记 pattern 不记 incident**：写「实验臂一律用承载内容的名词命名、禁用位置字母——位置引用跨 context 必丢义」，不写「这次别再写 ABCD」。incident 记进条目的 `born_from` 字段做 provenance。
+2. **提名（sweep）**——**默认触发点 = 给某项目升级 submodule 时**（下行动作顺带上行，不引入新节奏；也可由治理 job 定期跑）：扫该项目 LOCAL_RULES 里的 `upstream-candidate`，记进本仓库 `INBOX.md`（待裁决队列，首次 sweep 时创建即可）。去重对象是**所有裁决过的候选**（含 rejected，靠第 4 步的 status 回写），不只是现行条款。
+3. **裁决（人）**——先问新旧（见下），再查路由表。过闸记一条 ADR：来自哪个项目、为什么、落到哪。
+4. **回流**——bump 版本 + CHANGELOG；**裁决结果回写来源项目的 LOCAL_RULES**（`promoted@vX.Y` / `rejected` + 一句话理由）——没有这一步，同一条会被反复提名、永不收敛；项目下次 `submodule update` 拿到新版本。闭环合上。
 
-**新颖性一刀（先于路由表）**：候选是**全新原则**，还是**已有原则的新实例**？是实例 → 落 `examples/` 或模板 checklist 项，**绝不新增规则条款**——§8 的单源轴同样约束手册自己：同一原则不许换件衣服再出现一遍。
+**先问新旧（再查路由表）**：候选是**全新原则**，还是**已有原则的新实例**？是实例 → 落 `examples/` 或模板 checklist 项，**绝不新增规则条款**——§8 的「不冗余」同样约束手册自己：同一原则不许换件衣服再出现一遍。
 
 **路由表（按序问，命中即落）**：
 
 | 判据 | 落点 | 预期频率 |
 |---|---|---|
 | 跨所有 profile 成立的不变量？ | MANUAL 正文 | 极少 |
-| 只对某类项目成立？ | profile 插头（矩阵一行；插头超一行才抽 `profiles/<x>.md`） | 主要落点 |
+| 只对某类项目成立？ | profiles 矩阵加一行（超一行内容才抽成 `profiles/<x>.md`） | 主要落点 |
 | 多步骤方法论、按需调用？ | `playbooks/` | 偶尔 |
 | 某条已有原则的完美实例？ | `examples/` + 锚定（契约见 `examples/README.md`） | 常见 |
 | 都不是？ | 留在项目 LOCAL_RULES（**默认归宿，不是遗憾**） | 最多 |
 
-**健康指标是漏斗形**：MANUAL 正文的增速若超过 `examples/` 的增速，说明晋升闸失守——先修闸，再收规则。
+**自检**：MANUAL 正文若长得比 `examples/` 还快，说明裁决太松——先修闸，再收规则。
 
 ---
 
-*本手册自身遵守它定义的规则：它在慢层、只含不变量；profile 特定的东西是**插头（命名 + 一行）**不是手册正文，任何项目特定内容都属于那个项目的 CHARTER/SPEC/STATE，不许写进这里。手册自身的演化走 §9 的晋升闸：记 `DECISIONS.md`、按 `CHANGELOG.md` 版本化。*
+*本手册自身遵守它定义的规则：它在慢层、只含不变量；profile 特定内容只留**命名 + 一行**，任何项目特定内容都属于那个项目的 CHARTER/SPEC/STATE，不许写进这里。手册自身的演化走 §9 的晋升闸：记 `DECISIONS.md`、按 `CHANGELOG.md` 版本化。*
