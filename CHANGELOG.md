@@ -14,6 +14,8 @@
 - **README reframed around oversight** (matches the [blog post](https://cogito233.github.io/blog/human-in-the-loop-oversight/)): one screen (charter, budget, threads), two human decisions (approve a task, accept a result), the task as the unit of work, the four kinds of memory, and a Limitations section. New diagrams `assets/oversight-layers.svg` and `assets/task-timeline.svg` replace `loop.svg` and `architecture.svg` in the README.
 - **Budget in the skeleton**: the CHARTER template has a budget line (total GPU-h and API $; over a thread's cap → ask), and the STATE table has a `budget used / cap` column.
 
+- **Core vs extras**: `skills/` holds the three core skills (`swarm-setup`, `swarm-loop`, `swarm-accept`); `swarm-complexity-audit` and `swarm-paper` moved to `extras/` and are not installed by default.
+
 Migration: projects pinned to v1/v2 keep working (protocol semantics unchanged from v2.0.0). On upgrade, `templates/` → `skills/swarm-setup/templates/` and `skills/swarm-loop/templates/`; `playbooks/*` → `skills/swarm-*`; CHARTER line becomes `built_against: swarm-oversight-harness v3.0`. Existing docs using old Chinese terms do not need rewriting; frontmatter `tier: canon|scratch` reads as `accepted|draft`.
 
 ## v2.0.0 · 2026-07-26

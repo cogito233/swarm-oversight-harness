@@ -45,10 +45,8 @@ The [blog post](https://cogito233.github.io/blog/human-in-the-loop-oversight/) e
 | [`swarm-setup`](skills/swarm-setup/SKILL.md) | Starting a project or adding the harness to an existing repo |
 | [`swarm-loop`](skills/swarm-loop/SKILL.md) | Running one planner round: resync, split, dispatch, verify, update STATE |
 | [`swarm-accept`](skills/swarm-accept/SKILL.md) | Before you sign a result: check evidence, red-team, one-screen brief |
-| [`swarm-complexity-audit`](skills/swarm-complexity-audit/SKILL.md) | The system works but you keep babysitting it |
-| [`swarm-paper`](skills/swarm-paper/SKILL.md) | Pre-submission editing pass for a paper written with agents |
 
-[MANUAL.md](MANUAL.md) has the full rules and profiles (`research`, `experiments`, `product-eng`, `solo`). Templates are in `skills/*/templates/`.
+Two optional skills that grew out of the same projects are in [`extras/`](extras/): a complexity audit and a pre-submission paper pass. [MANUAL.md](MANUAL.md) has the full rules and profiles (`research`, `experiments`, `product-eng`, `solo`). Templates are in `skills/*/templates/`.
 
 ## Core rules
 

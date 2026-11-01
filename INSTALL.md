@@ -37,9 +37,11 @@ ls -l "$SKILLS_DIR" | grep swarm-
 If your agent does not support skills, add this line to the project's `AGENTS.md` (or `CLAUDE.md`) instead:
 `For project workflow, follow ~/.swarm-oversight-harness/skills/*/SKILL.md (setup, loop, accept).`
 
+Optional: the two skills in `extras/` (`swarm-complexity-audit`, `swarm-paper`) are not installed by default. Link them the same way only if the user asks for them.
+
 ## 3 · Verify
 
-List the five installed skills (`swarm-setup`, `swarm-loop`, `swarm-accept`, `swarm-complexity-audit`, `swarm-paper`), say which directory they were linked into, and tell the user that they may need to restart the agent session before the skills load.
+List the three installed skills (`swarm-setup`, `swarm-loop`, `swarm-accept`), say which directory they were linked into, and tell the user that they may need to restart the agent session before the skills load.
 
 ## 4 · Offer the next step
 

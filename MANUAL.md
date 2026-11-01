@@ -301,7 +301,7 @@ This repo is itself a project. MANUAL is its accepted content, and the local rul
 |---|---|---|
 | an invariant that holds across all profiles? | MANUAL body | very rare |
 | holds only for one kind of project? | a row in the profile matrix (only extract to `profiles/<x>.md` if it exceeds one line) | main landing spot |
-| a multi-step method invoked on demand? | a skill under `skills/` (e.g. `swarm-paper`, `swarm-complexity-audit`) | occasional |
+| a multi-step method invoked on demand? | a skill under `skills/`, or under `extras/` if it is optional (e.g. `swarm-paper`, `swarm-complexity-audit`) | occasional |
 | a perfect instance of an existing principle? | `examples/` + anchor (contract in `examples/README.md`) | common |
 | none of the above? | stays in the project's LOCAL_RULES (**the default home, not a failure**) | most |
 

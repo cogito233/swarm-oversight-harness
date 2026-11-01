@@ -45,10 +45,8 @@ Install Swarm Oversight Harness from https://github.com/cogito233/swarm-oversigh
 | [`swarm-setup`](skills/swarm-setup/SKILL.md) | 起新项目，或给已有仓库补上这套约定 |
 | [`swarm-loop`](skills/swarm-loop/SKILL.md) | 让 planner 跑一轮：核对现状、拆分、派活、验证、更新 STATE |
 | [`swarm-accept`](skills/swarm-accept/SKILL.md) | 你签字之前：核对证据、red-team、一屏简报 |
-| [`swarm-complexity-audit`](skills/swarm-complexity-audit/SKILL.md) | 系统能跑，但你一直得盯着 |
-| [`swarm-paper`](skills/swarm-paper/SKILL.md) | 用 agent 写的论文，投稿前做一遍编辑 |
 
-完整规则和各种 profile（`research`、`experiments`、`product-eng`、`solo`）见 [MANUAL.md](MANUAL.md)，模板在 `skills/*/templates/`。
+[`extras/`](extras/) 里另有两个可选 skill：复杂度审计和论文投稿前编辑，都是在同样的项目里长出来的。完整规则和各种 profile（`research`、`experiments`、`product-eng`、`solo`）见 [MANUAL.md](MANUAL.md)，模板在 `skills/*/templates/`。
 
 ## 核心规则
 
