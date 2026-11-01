@@ -3,16 +3,18 @@
 > Versioning (MANUAL §9): invariant change = major; profile / skill / template change = minor; examples and wording = patch.
 > Entries before v3.0.0 are in Chinese (the manual was Chinese-only until then).
 
-## v3.0.0 · 2026-10-31 — first public release as SuperSwarm Harness
+## v3.0.0 · 2026-10-31 — first public release as Swarm Oversight Harness
 
-- **Renamed** `agent-workflow` → **SuperSwarm Harness** (`superswarm-harness`).
+- **Renamed** `agent-workflow` → **Swarm Oversight Harness** (`swarm-oversight-harness`).
 - **English is now the canonical manual** (`MANUAL.md`). The Chinese v2.0.0 originals are frozen in `docs/zh/` and may lag.
 - **Plain vocabulary**: plan agent → planner; execution agent → worker; 收口 → consolidate; 采纳 → accept; tiers canon/working/scratch → accepted/working/draft; 单源台账 → source of record; 对齐 ground truth → resync; 断路器/cycle 预算 → retry budget + stall check; 判例 → examples.
-- **Packaged as Agent Skills** (`skills/`): `superswarm-setup`, `superswarm-loop`, `superswarm-accept` (new), `superswarm-complexity-audit` and `superswarm-paper` (from `playbooks/`). Templates moved into the skills that use them.
+- **Packaged as Agent Skills** (`skills/`): `swarm-setup`, `swarm-loop`, `swarm-accept` (new), `swarm-complexity-audit` and `swarm-paper` (from `playbooks/`). Templates moved into the skills that use them.
 - **New**: `INSTALL.md` (agent-run install), `README_zh.md`, `LICENSE` (MIT), architecture diagrams in `assets/`.
 - Private project names anonymized.
+- **README reframed around oversight** (matches the [blog post](https://cogito233.github.io/blog/human-in-the-loop-oversight/)): one screen (charter, budget, threads), two human decisions (approve a task, accept a result), the task as the unit of work, the four kinds of memory, and a Limitations section. New diagrams `assets/oversight-layers.svg` and `assets/task-timeline.svg` replace `loop.svg` and `architecture.svg` in the README.
+- **Budget in the skeleton**: the CHARTER template has a budget line (total GPU-h and API $; over a thread's cap → ask), and the STATE table has a `budget used / cap` column.
 
-Migration: projects pinned to v1/v2 keep working (protocol semantics unchanged from v2.0.0). On upgrade, `templates/` → `skills/superswarm-setup/templates/` and `skills/superswarm-loop/templates/`; `playbooks/*` → `skills/superswarm-*`; CHARTER line becomes `built_against: superswarm-harness v3.0`. Existing docs using old Chinese terms do not need rewriting; frontmatter `tier: canon|scratch` reads as `accepted|draft`.
+Migration: projects pinned to v1/v2 keep working (protocol semantics unchanged from v2.0.0). On upgrade, `templates/` → `skills/swarm-setup/templates/` and `skills/swarm-loop/templates/`; `playbooks/*` → `skills/swarm-*`; CHARTER line becomes `built_against: swarm-oversight-harness v3.0`. Existing docs using old Chinese terms do not need rewriting; frontmatter `tier: canon|scratch` reads as `accepted|draft`.
 
 ## v2.0.0 · 2026-07-26
 

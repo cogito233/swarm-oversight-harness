@@ -2,7 +2,7 @@
 
 > **Inventory first, don't lay down the whole tree** (MANUAL §7, STEP 0). The universal minimum is `CHARTER · STATE · DECISIONS · JOURNAL`, and every project needs it. Add `threads/`, `tasks/`, a source of record, or doc governance only when STEP 0 shows that role is not yet covered. In a repo that is already governed, fill only the gaps.
 > The layout below is the **threads container (the default)**. For other containers (job-queue / kanban / solo) see the Profiles table in the MANUAL; SPEC / LOG / RESULT mean the same in all of them. A single-thread project can flatten `threads/T1/` into the root.
-> Task and result templates: `TASK.md` and `RESULT.md` in the `superswarm-loop` skill.
+> Task and result templates: `TASK.md` and `RESULT.md` in the `swarm-loop` skill.
 
 ```
 project/
@@ -30,7 +30,8 @@ goal: <one sentence: what success looks like>
 Why: <motivation / reason this project exists>
 Non-goals: <what we explicitly do not do>
 Hard constraints: <resources / time / lines that cannot be crossed>
-built_against: superswarm-harness v<X.Y>   ← MANUAL §9; update when you upgrade the submodule
+Budget: <total GPU-h> GPU-h + $<total> API; per-thread caps in STATE. Over a thread's cap → ask.
+built_against: swarm-oversight-harness v<X.Y>   ← MANUAL §9; update when you upgrade the submodule
 ```
 
 ---
@@ -59,10 +60,10 @@ built_against: superswarm-harness v<X.Y>   ← MANUAL §9; update when you upgra
 
 Critical path: <which verifiable result of which thread unlocks the next stage>
 
-| thread | current stage | latest evidence | next | blocked / needs decision | updated |
-|---|---|---|---|---|---|
-| T1-xxx | <working / awaiting verification / awaiting acceptance; `unknown` if it cannot be confirmed> | <path / check result supporting the stage; if unconfirmed, what evidence is missing> | <...> | <what a human must decide; "-" if nothing> | <date> |
-| T2-xxx | blocked | <failure evidence> | <...> | waiting on X | <date> |
+| thread | current stage | latest evidence | budget used / cap | next | blocked / needs decision | updated |
+|---|---|---|---|---|---|---|
+| T1-xxx | <working / awaiting verification / awaiting acceptance; `unknown` if it cannot be confirmed> | <path / check result supporting the stage; if unconfirmed, what evidence is missing> | <e.g. 40/100 GPU-h or $90/$200> | <...> | <what a human must decide; "-" if nothing> | <date> |
+| T2-xxx | blocked | <failure evidence> | <used>/<cap> | <...> | waiting on X | <date> |
 
 ## Acceptance queue
 - [ ] <output / path waiting for your sign-off>

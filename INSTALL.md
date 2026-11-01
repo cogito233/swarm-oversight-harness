@@ -1,12 +1,12 @@
 # INSTALL (for agents)
 
-You are a coding agent installing SuperSwarm Harness for your user. Follow these steps exactly. Ask before overwriting anything.
+You are a coding agent installing Swarm Oversight Harness for your user. Follow these steps exactly. Ask before overwriting anything.
 
 ## 1 · Get the repo
 
 ```bash
-REPO="$HOME/.superswarm-harness"
-if [ -d "$REPO/.git" ]; then git -C "$REPO" pull --ff-only; else git clone https://github.com/cogito233/superswarm-harness.git "$REPO"; fi
+REPO="$HOME/.swarm-oversight-harness"
+if [ -d "$REPO/.git" ]; then git -C "$REPO" pull --ff-only; else git clone https://github.com/cogito233/swarm-oversight-harness.git "$REPO"; fi
 ```
 
 ## 2 · Link the skills
@@ -31,22 +31,22 @@ for s in "$REPO"/skills/*/; do
   fi
   ln -sfn "$s" "$SKILLS_DIR/$name"
 done
-ls -l "$SKILLS_DIR" | grep superswarm
+ls -l "$SKILLS_DIR" | grep swarm-
 ```
 
-If your agent has no skills support, add one line to the project's `AGENTS.md` (or `CLAUDE.md`) instead:
-`For project workflow, follow ~/.superswarm-harness/skills/*/SKILL.md (setup, loop, accept).`
+If your agent does not support skills, add this line to the project's `AGENTS.md` (or `CLAUDE.md`) instead:
+`For project workflow, follow ~/.swarm-oversight-harness/skills/*/SKILL.md (setup, loop, accept).`
 
 ## 3 · Verify
 
-List the five installed skills (`superswarm-setup`, `superswarm-loop`, `superswarm-accept`, `superswarm-complexity-audit`, `superswarm-paper`), say which directory they were linked into, and tell the user they may need to restart the agent session to pick them up.
+List the five installed skills (`swarm-setup`, `swarm-loop`, `swarm-accept`, `swarm-complexity-audit`, `swarm-paper`), say which directory they were linked into, and tell the user that they may need to restart the agent session before the skills load.
 
 ## 4 · Offer the next step
 
-Ask the user if they want to run `superswarm-setup` on the current repo now. Do not run it without a yes.
+Ask the user whether they want to run `swarm-setup` on the current repo now. Do not run it unless they say yes.
 
 ## Update / uninstall
 
-- Update: `git -C ~/.superswarm-harness pull --ff-only` (symlinks pick it up).
-- Uninstall: remove the `superswarm-*` symlinks from the skills directory, then delete `~/.superswarm-harness`.
-- Pin a version per project (optional): add the repo as a git submodule and record `built_against: superswarm-harness v<X.Y>` in CHARTER (MANUAL §9).
+- Update: `git -C ~/.swarm-oversight-harness pull --ff-only` (the symlinks pick up the new version).
+- Uninstall: remove the `swarm-*` symlinks from the skills directory, then delete `~/.swarm-oversight-harness`.
+- Pin a version per project (optional): add the repo as a git submodule and record `built_against: swarm-oversight-harness v<X.Y>` in CHARTER (MANUAL §9).

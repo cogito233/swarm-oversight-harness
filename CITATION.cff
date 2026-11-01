@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use Swarm Oversight Harness, please cite it as below."
+title: "Swarm Oversight Harness: Toward Human-in-the-Loop Oversight for Long-Horizon Agent Projects"
+type: software
+authors:
+  - alias: cogito233   # TODO: replace with given-names / family-names
+version: 3.0.0
+date-released: 2026-10-31
+license: MIT
+repository-code: "https://github.com/cogito233/swarm-oversight-harness"
+keywords: [agents, multi-agent, human-in-the-loop, oversight, long-horizon, research workflow, agent skills]

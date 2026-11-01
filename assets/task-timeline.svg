@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" width="760" height="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="The task is the object that stays continuous; agents come and go. Agent A reads the task, launches the experiment, writes a handoff to the LOG and exits; the experiment runs with no agent alive and no polling; a hook wakes Agent B, which writes RESULT and exits; Verifier C checks RESULT; the planner drafts TASK.md and the human approves it at the start; the human accepts the verified RESULT at the end.">
+<title>The task stays; agents come and go</title>
+<defs>
+<marker id="a-human" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B4530A"/></marker>
+<marker id="a-planner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1F5FBF"/></marker>
+<marker id="a-worker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1B7F5C"/></marker>
+<marker id="a-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5C6670"/></marker>
+</defs>
+
+<!-- background -->
+<rect x="1" y="1" width="758" height="438" rx="16" fill="#F7F7F5" stroke="#D9DBD6" stroke-width="2"/>
+
+<!-- title -->
+<text x="24" y="34" font-size="20" font-weight="bold" fill="#1F2933">The task stays; agents come and go</text>
+
+<!-- ===== AGENT LIFETIMES (above the bar) ===== -->
+
+<!-- Agent A -->
+<rect x="166" y="52" width="11" height="11" fill="#1B7F5C"/>
+<text x="216" y="62" font-size="15" font-weight="bold" fill="#1B7F5C" text-anchor="end">exits</text>
+<rect x="44" y="72" width="172" height="100" rx="14" fill="#FFFFFF" stroke="#1B7F5C" stroke-width="2.2"/>
+<text x="130" y="100" font-size="20" font-weight="bold" fill="#1B7F5C" text-anchor="middle">Agent A</text>
+<text x="130" y="124" font-size="15" fill="#5C6670" text-anchor="middle">reads TASK.md</text>
+<text x="130" y="144" font-size="15" fill="#5C6670" text-anchor="middle">launches run</text>
+<text x="130" y="164" font-size="15" fill="#5C6670" text-anchor="middle">handoff → LOG</text>
+<!-- A connectors: read up, write down -->
+<path d="M70 222 L70 180" fill="none" stroke="#1B7F5C" stroke-width="2.4" marker-end="url(#a-worker)"/>
+<text x="78" y="206" font-size="15" fill="#5C6670">read</text>
+<path d="M206 174 L206 216" fill="none" stroke="#1B7F5C" stroke-width="2.4" marker-end="url(#a-worker)"/>
+<text x="198" y="206" font-size="15" fill="#5C6670" text-anchor="end">write</text>
+
+<!-- Gap: experiment runs, nobody alive -->
+<rect x="244" y="86" width="150" height="74" rx="12" fill="#5C6670" fill-opacity="0.06" stroke="#5C6670" stroke-width="1.8" stroke-dasharray="5 4"/>
+<text x="319" y="110" font-size="15" font-weight="bold" fill="#5C6670" text-anchor="middle">experiment runs</text>
+<text x="319" y="130" font-size="15" fill="#5C6670" text-anchor="middle">no agent alive</text>
+<text x="319" y="150" font-size="15" fill="#5C6670" text-anchor="middle">no polling</text>
+<!-- bell = done hook -->
+<g transform="translate(394 150)">
+<circle r="12" fill="#F7F7F5" stroke="#1B7F5C" stroke-width="1.8"/>
+<path d="M-5 3 Q-5 -5 0 -6 Q5 -5 5 3 L7 5 L-7 5 Z" fill="#1B7F5C"/>
+<circle cx="0" cy="7" r="1.6" fill="#1B7F5C"/>
+</g>
+<path d="M408 150 L428 150" fill="none" stroke="#1B7F5C" stroke-width="2.4" marker-end="url(#a-worker)"/>
+<text x="412" y="186" font-size="15" font-weight="bold" fill="#1B7F5C" text-anchor="end">done → hook</text>
+
+<!-- Agent B -->
+<rect x="540" y="52" width="11" height="11" fill="#1B7F5C"/>
+<text x="590" y="62" font-size="15" font-weight="bold" fill="#1B7F5C" text-anchor="end">exits</text>
+<rect x="430" y="72" width="160" height="100" rx="14" fill="#FFFFFF" stroke="#1B7F5C" stroke-width="2.2"/>
+<text x="510" y="100" font-size="20" font-weight="bold" fill="#1B7F5C" text-anchor="middle">Agent B</text>
+<text x="510" y="124" font-size="15" fill="#5C6670" text-anchor="middle">picks up from LOG</text>
+<text x="510" y="144" font-size="15" fill="#5C6670" text-anchor="middle">analyzes</text>
+<text x="510" y="164" font-size="15" fill="#5C6670" text-anchor="middle">writes RESULT</text>
+<path d="M452 222 L452 180" fill="none" stroke="#1B7F5C" stroke-width="2.4" marker-end="url(#a-worker)"/>
+<path d="M568 174 L568 216" fill="none" stroke="#1B7F5C" stroke-width="2.4" marker-end="url(#a-worker)"/>
+
+<!-- Verifier C -->
+<rect x="604" y="72" width="132" height="100" rx="14" fill="#FFFFFF" stroke="#1F5FBF" stroke-width="2.2"/>
+<text x="670" y="100" font-size="20" font-weight="bold" fill="#1F5FBF" text-anchor="middle">Verifier C</text>
+<text x="670" y="124" font-size="15" fill="#5C6670" text-anchor="middle">checks RESULT</text>
+<text x="670" y="144" font-size="15" fill="#5C6670" text-anchor="middle">vs reality</text>
+<path d="M626 222 L626 180" fill="none" stroke="#1F5FBF" stroke-width="2.4" marker-end="url(#a-planner)"/>
+<path d="M714 174 L714 216" fill="none" stroke="#1F5FBF" stroke-width="2.4" marker-end="url(#a-planner)"/>
+
+<!-- ===== TASK OBJECT BAR ===== -->
+<rect x="40" y="224" width="696" height="62" rx="12" fill="#FFFFFF" stroke="#1F2933" stroke-width="2"/>
+<text x="52" y="243" font-size="15" font-weight="bold" fill="#1F2933">TASK T2 · one object, many agents</text>
+<text x="724" y="243" font-size="15" fill="#5C6670" text-anchor="end">time →</text>
+
+<!-- file chips, accumulating left to right -->
+<rect x="96" y="250" width="92" height="28" rx="7" fill="#FFFFFF" stroke="#B4530A" stroke-width="1.8"/>
+<text x="142" y="269" font-size="15" font-weight="bold" fill="#B4530A" text-anchor="middle">TASK.md</text>
+
+<rect x="200" y="250" width="124" height="28" rx="7" fill="#FFFFFF" stroke="#1B7F5C" stroke-width="1.8"/>
+<text x="262" y="269" font-size="15" font-weight="bold" fill="#1B7F5C" text-anchor="middle">LOG (append)</text>
+<line x1="330" y1="264" x2="512" y2="264" stroke="#1B7F5C" stroke-width="2" stroke-dasharray="3 5" stroke-opacity="0.6"/>
+
+<rect x="520" y="250" width="86" height="28" rx="7" fill="#FFFFFF" stroke="#1B7F5C" stroke-width="1.8"/>
+<text x="563" y="269" font-size="15" font-weight="bold" fill="#1B7F5C" text-anchor="middle">RESULT</text>
+
+<rect x="636" y="250" width="92" height="28" rx="7" fill="#FFFFFF" stroke="#1F5FBF" stroke-width="1.8"/>
+<text x="682" y="269" font-size="15" font-weight="bold" fill="#1F5FBF" text-anchor="middle">✓ verified</text>
+
+<!-- ===== HUMAN GATES (below the bar) ===== -->
+<path d="M144 314 L144 290" fill="none" stroke="#B4530A" stroke-width="2.4" marker-end="url(#a-human)"/>
+<rect x="44" y="316" width="204" height="56" rx="10" fill="#FFFFFF" stroke="#B4530A" stroke-width="2.2"/>
+<text x="146" y="339" font-size="17" font-weight="bold" fill="#B4530A" text-anchor="middle">You approve the task</text>
+<text x="146" y="360" font-size="15" fill="#5C6670" text-anchor="middle">TASK.md drafted by planner</text>
+
+<path d="M634 288 L634 312" fill="none" stroke="#B4530A" stroke-width="2.4" marker-end="url(#a-human)"/>
+<rect x="532" y="316" width="204" height="56" rx="10" fill="#FFFFFF" stroke="#B4530A" stroke-width="2.2"/>
+<text x="634" y="339" font-size="17" font-weight="bold" fill="#B4530A" text-anchor="middle">You accept the result</text>
+<text x="634" y="360" font-size="15" fill="#5C6670" text-anchor="middle">after the verifier checks it</text>
+
+<!-- ===== CONTRAST STRIP ===== -->
+<rect x="40" y="390" width="344" height="34" rx="8" fill="#5C6670" fill-opacity="0.08"/>
+<text x="212" y="412" font-size="15" font-style="italic" fill="#5C6670" text-anchor="middle">context window: gone when the agent exits</text>
+<rect x="392" y="390" width="344" height="34" rx="8" fill="#FFFFFF" stroke="#1F2933" stroke-width="1.5"/>
+<text x="564" y="412" font-size="15" font-weight="bold" fill="#1F2933" text-anchor="middle">task object: kept, every step</text>
+</svg>

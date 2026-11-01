@@ -13,15 +13,15 @@ status: done | partial | blocked | escalated
 - Branch / worktree: <name>
 - Output paths: <list>
 
-## Acceptance criteria self-check (⚠️ not authoritative; for the independent verifier only)
+## Acceptance criteria self-check (⚠️ not authoritative; for the independent verifier's reference only)
 - [x] <criterion> — check: <command or method>; observed: <result / exit status>; evidence: <path>
-- [ ] <criterion> — why not met or not confirmable: <facts>
+- [ ] <criterion> — why it is not met or cannot be confirmed: <facts>
 
 ## Failures, assumptions, unknowns
 - Failures: <failures from this round and relevant earlier cycles, with evidence; "none" if none>
 - Changed vs. last round: <fill in on a retry; "n/a" otherwise>
 - Assumptions: <list>
-- unknown: <list; never write an unknown as success or failure>
+- unknown: <list; never report an unknown as a success or a failure>
 
 ## Escalations
 - <SPEC contradictions, boundary risks, surprising results, anything the human / planner must decide; "none" if none>

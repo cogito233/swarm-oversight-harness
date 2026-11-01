@@ -1,5 +1,5 @@
 ---
-name: superswarm-complexity-audit
+name: swarm-complexity-audit
 description: Read-only audit of an AI-driven software, research, benchmark, or data-production project that sorts its complexity into what the goal and trust chain actually require and what is accidental, speculative, control debt, or scale-induced, then outputs delete / merge / defer / keep / solidify decisions. Use when the user asks "is this complexity necessary", "audit my pipeline", says there are too many stages or they are babysitting the system, or asks whether to solidify the current system or go back to a golden path / micro-batch.
 ---
 
@@ -9,7 +9,7 @@ description: Read-only audit of an AI-driven software, research, benchmark, or d
 
 **Core principle:** justify complexity item by item; never defend the system as a whole. Prefer deleting, merging, doing it by hand, or deferring over adding abstractions. But never use "simplification" as cover for removing a trust boundary that protects a headline claim.
 
-Full rationale for the surrounding workflow: [MANUAL.md](https://github.com/cogito233/superswarm-harness/blob/main/MANUAL.md).
+Full rationale for the surrounding workflow: [MANUAL.md](https://github.com/cogito233/swarm-oversight-harness/blob/main/MANUAL.md).
 
 ## When to use
 
@@ -17,10 +17,10 @@ Use it when any of these is true:
 
 - The system "runs", but someone has to stay on call for it.
 - Stages, queues, artifacts, and config keep growing.
-- After a long time, most of the work is maintaining the project rather than producing conclusions or deliverables.
+- The project has run for a long time, and most of the work now goes into maintaining it rather than producing conclusions or deliverables.
 - It is unclear whether a sandbox, verifier, judge, service, or middle layer is needed.
 - You want more throughput, but unknown failures and human interventions are still frequent.
-- AI makes new components cheap, while maintaining and understanding them keeps getting harder.
+- AI makes new components cheap to build, but maintaining and understanding them keeps getting harder.
 - You need to decide whether to solidify the current system or fall back to a golden path / micro-batch.
 
 ## How to run it (as the agent)
@@ -33,7 +33,7 @@ Use it when any of these is true:
 
 ### Minimum input pack
 
-At least:
+At a minimum:
 
 ```text
 Project root:
@@ -45,7 +45,7 @@ Logs / manifest / summary of a recent representative run:
 The 3 things that currently consume the most human attention:
 ```
 
-Better if also available:
+Also useful, if available:
 
 - CHARTER / SPEC / STATE / DECISIONS;
 - stage definitions, CLI entry points, schemas, sample artifacts;
@@ -244,7 +244,7 @@ Do not close with "needs further research". Even when evidence is thin, state th
 
 ## Four questions for the human reviewing the output
 
-The audit agent may also lean toward architecture styles it is familiar with. Before signing off, ask:
+The audit agent may itself lean toward architecture styles it knows well. Before signing off, ask:
 
 1. **Is what gets deleted an implementation, or a trust guarantee?** If the latter, where is the replacement mechanism?
 2. **Does the new control plane actually reduce on-call work, or does it create another system that needs someone on call?**
