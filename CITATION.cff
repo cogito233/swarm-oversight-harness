@@ -3,7 +3,9 @@ message: "If you use Swarm Oversight Harness, please cite it as below."
 title: "Swarm Oversight Harness: Toward Human-in-the-Loop Oversight for Long-Horizon Agent Projects"
 type: software
 authors:
-  - alias: cogito233   # TODO: replace with given-names / family-names
+  - family-names: Lyu
+    given-names: Zhiheng
+    alias: cogito233
 version: 3.0.0
 date-released: 2026-10-31
 license: MIT
