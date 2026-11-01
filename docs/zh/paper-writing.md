@@ -1,3 +1,5 @@
+> **Frozen Chinese original (v2.0.0, 2026-07-26).** The canonical, maintained version is the English one in the repo root / `skills/`. This copy may lag. · 中文原版存档，可能落后于英文正本。
+
 # Playbook · 用 code agent 写研究 / benchmark 论文
 
 > **定位**：`research` profile 的一个**收口闸**——当工作单元（数据集、leaderboard、消融）已采纳进 canon，要把它们写成一篇投稿论文时，用这套做"投稿前编辑 pass"。它不替代手册的闭环，它是闭环右半边（收口 → 采纳）在「论文」这个产物上的具体形态。
@@ -60,7 +62,7 @@
 - [ ] **bold 纪律**：顶会论文极少用粗体——只在贡献 lead-in、表头 / winner 用。满屏粗体 = 没有重点。让句子结构承重。
 - [ ] **戒 em-dash 瘾**："主句—插一句—再补一刀"的节奏是初稿信号。把约一半改成句号。
 - [ ] **abstract 纪律**：约 150 词；**不放地面级单个数字**（如"在 X 上 0.04"）；不放实现细节；命名实体前先引入它（别甩裸的小写模型昵称）。只说：建了什么 + 一句话核心发现 + 为何 novel。
-- [ ] **降 neologism / codename 负载 + register**：留 3–4 个真正承重的术语；内部 item code / 萌名下放附录；正文保持学术语域（正文不出现 "soul item" / "kitchensink" 这类词）。
+- [ ] **降 neologism / codename 负载 + register**：留 3–4 个真正承重的术语；内部 item code / 萌名下放附录；正文保持学术语域。
 
 ### D. 一致性 & 结构
 - [ ] **一致性卫生**：模型名大小写、术语命名、引用渲染统一；引用是真实第三方作者，**只有自引为盲审匿名**。

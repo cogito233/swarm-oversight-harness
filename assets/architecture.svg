@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 880" width="1280" height="880" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Management layers: human gates, replaceable planner, replaceable workers, and the documents that outlive them">
+<title>Management layers: human gates, replaceable planner, replaceable workers, and the documents that outlive them</title>
+<defs>
+<marker id="arr-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1F2933"/></marker>
+<marker id="arr-human" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B4530A"/></marker>
+<marker id="arr-planner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1F5FBF"/></marker>
+<marker id="arr-worker" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1B7F5C"/></marker>
+<marker id="arr-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5C6670"/></marker>
+</defs>
+<rect x="1" y="1" width="1278" height="878" rx="18" fill="#F7F7F5" stroke="#D9DBD6" stroke-width="2"/>
+<text x="40" y="50" font-size="28" fill="#1F2933" font-weight="bold" text-anchor="start" >Management layers</text>
+<text x="40" y="76" font-size="15" fill="#5C6670" font-weight="normal" text-anchor="start" >Many agents run in parallel, but a human holds the two gates. Agents are replaceable; the documents are the project's durable state.</text>
+<rect x="40" y="100" width="880" height="150" rx="12" fill="#FBEFE3" stroke="#B4530A" stroke-width="1.5" />
+<text x="56" y="124" font-size="14" fill="#B4530A" font-weight="bold" text-anchor="start" letter-spacing="2">HUMAN</text>
+<text x="121" y="124" font-size="13" fill="#5C6670" font-weight="normal" text-anchor="start" >· two touchpoints only: set WHAT upstream, sign outputs downstream</text>
+<rect x="40" y="280" width="880" height="160" rx="12" fill="#E6EEFB" stroke="#1F5FBF" stroke-width="1.5" />
+<text x="56" y="304" font-size="14" fill="#1F5FBF" font-weight="bold" text-anchor="start" letter-spacing="2">PLANNER</text>
+<text x="143" y="304" font-size="13" fill="#5C6670" font-weight="normal" text-anchor="start" >· replaceable</text>
+<rect x="40" y="470" width="880" height="190" rx="12" fill="#E3F3EC" stroke="#1B7F5C" stroke-width="1.5" />
+<text x="56" y="494" font-size="14" fill="#1B7F5C" font-weight="bold" text-anchor="start" letter-spacing="2">WORKERS</text>
+<text x="143" y="494" font-size="13" fill="#5C6670" font-weight="normal" text-anchor="start" >· replaceable · parallel</text>
+<text x="56" y="432" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >can be killed at any time and rebuilt from the docs</text>
+<text x="56" y="652" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >isolated: a git worktree, or a per-job directory</text>
+<rect x="260" y="140" width="230" height="90" rx="8" fill="#FFFFFF" stroke="#B4530A" stroke-width="1.8" />
+<text x="375.0" y="167" font-size="19" fill="#B4530A" font-weight="bold" text-anchor="middle" >Spec gate</text>
+<text x="375.0" y="188" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >upstream · sets WHAT</text>
+<text x="375.0" y="204" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >goals · acceptance criteria · non-goals</text>
+<rect x="670" y="140" width="230" height="90" rx="8" fill="#FFFFFF" stroke="#B4530A" stroke-width="1.8" />
+<text x="785.0" y="167" font-size="19" fill="#B4530A" font-weight="bold" text-anchor="middle" >Accept gate</text>
+<text x="785.0" y="188" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >downstream · signs outputs</text>
+<text x="785.0" y="204" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >draft → accepted (trust boundary)</text>
+<text x="580" y="180" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >never merges</text>
+<text x="580" y="196" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >N results by hand</text>
+<rect x="80" y="325" width="170" height="82" rx="8" fill="#FFFFFF" stroke="#1F5FBF" stroke-width="1.8" />
+<text x="165.0" y="352" font-size="18" fill="#1F5FBF" font-weight="bold" text-anchor="middle" >resync</text>
+<text x="165.0" y="373" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >read docs, then check</text>
+<text x="165.0" y="389" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >the real repo: reality wins</text>
+<rect x="290" y="325" width="170" height="82" rx="8" fill="#FFFFFF" stroke="#1F5FBF" stroke-width="1.8" />
+<text x="375.0" y="352" font-size="18" fill="#1F5FBF" font-weight="bold" text-anchor="middle" >split</text>
+<text x="375.0" y="373" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >file-disjoint tasks</text>
+<text x="375.0" y="389" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >one critical path</text>
+<rect x="500" y="325" width="170" height="82" rx="8" fill="#FFFFFF" stroke="#1F5FBF" stroke-width="1.8" />
+<text x="585.0" y="352" font-size="18" fill="#1F5FBF" font-weight="bold" text-anchor="middle" >verify</text>
+<text x="585.0" y="373" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >independent gate:</text>
+<text x="585.0" y="389" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >tests / eval / red-team</text>
+<rect x="710" y="325" width="170" height="82" rx="8" fill="#FFFFFF" stroke="#1F5FBF" stroke-width="1.8" />
+<text x="795.0" y="352" font-size="18" fill="#1F5FBF" font-weight="bold" text-anchor="middle" >consolidate</text>
+<text x="795.0" y="373" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >merge N results → STATE</text>
+<text x="795.0" y="389" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="middle" >+ accept queue</text>
+<path d="M250 366.0 L290 366.0" fill="none" stroke="#1F5FBF" stroke-width="2" marker-end="url(#arr-planner)" stroke-linejoin="round"/>
+<path d="M670 366.0 L710 366.0" fill="none" stroke="#1F5FBF" stroke-width="2" marker-end="url(#arr-planner)" stroke-linejoin="round"/>
+<rect x="250" y="522" width="470" height="108" rx="10" fill="none" stroke="#1B7F5C" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="260" y="538" font-size="11.5" fill="#1B7F5C" font-weight="normal" text-anchor="start" >worker pool · N in parallel</text>
+<rect x="265" y="548" width="130" height="66" rx="8" fill="#FFFFFF" stroke="#1B7F5C" stroke-width="1.8" />
+<text x="330" y="574" font-size="16" fill="#1B7F5C" font-weight="bold" text-anchor="middle" >worker 1</text>
+<text x="330" y="596" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >TASK in · RESULT out</text>
+<rect x="420" y="548" width="130" height="66" rx="8" fill="#FFFFFF" stroke="#1B7F5C" stroke-width="1.8" />
+<text x="485" y="574" font-size="16" fill="#1B7F5C" font-weight="bold" text-anchor="middle" >worker 2</text>
+<text x="485" y="596" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >TASK in · RESULT out</text>
+<rect x="575" y="548" width="130" height="66" rx="8" fill="#FFFFFF" stroke="#1B7F5C" stroke-width="1.8" />
+<text x="640" y="574" font-size="16" fill="#1B7F5C" font-weight="bold" text-anchor="middle" >worker N</text>
+<text x="640" y="596" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >TASK in · RESULT out</text>
+<rect x="740" y="522" width="160" height="108" rx="8" fill="#FFFFFF" stroke="#1B7F5C" stroke-width="1.2" />
+<text x="820.0" y="546" font-size="13" fill="#1B7F5C" font-weight="bold" text-anchor="middle" >Never self-certifies.</text>
+<text x="820.0" y="563" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >A RESULT reports evidence,</text>
+<text x="820.0" y="580" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >failures and unknowns;</text>
+<text x="820.0" y="597" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >pass / fail is decided</text>
+<text x="820.0" y="614" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="middle" >by the independent verifier.</text>
+<path d="M375 230 L375 325" fill="none" stroke="#B4530A" stroke-width="2" marker-end="url(#arr-human)" stroke-linejoin="round"/>
+<text x="385" y="302" font-size="12" fill="#B4530A" font-weight="bold" text-anchor="start" >SPEC</text>
+<path d="M375 407 L375 522" fill="none" stroke="#1F5FBF" stroke-width="2" marker-end="url(#arr-planner)" stroke-linejoin="round"/>
+<text x="385" y="470" font-size="12" fill="#1F5FBF" font-weight="bold" text-anchor="start" >TASK ×N</text>
+<path d="M585 522 L585 407" fill="none" stroke="#1B7F5C" stroke-width="2" marker-end="url(#arr-worker)" stroke-linejoin="round"/>
+<text x="575" y="470" font-size="12" fill="#1B7F5C" font-weight="bold" text-anchor="end" >RESULT ×N</text>
+<path d="M795 325 L795 230" fill="none" stroke="#1F5FBF" stroke-width="2" marker-end="url(#arr-planner)" stroke-linejoin="round"/>
+<text x="805" y="262" font-size="12" fill="#1F5FBF" font-weight="bold" text-anchor="start" >accept queue</text>
+<path d="M700 230 L700 256 L22 256 L22 366.0 L80 366.0" fill="none" stroke="#B4530A" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arr-human)" stroke-linejoin="round"/>
+<text x="430" y="273" font-size="11.5" fill="#B4530A" font-weight="normal" text-anchor="middle" >next round</text>
+<path d="M640 407 L640 522" fill="none" stroke="#1F5FBF" stroke-width="1.4" stroke-dasharray="6 5" marker-end="url(#arr-planner)" stroke-linejoin="round"/>
+<text x="650" y="496" font-size="11.5" fill="#1F5FBF" font-weight="normal" text-anchor="start" >retry on HOW (within budget)</text>
+<path d="M900 598 L905 598 L905 185 L900 185" fill="none" stroke="#B4530A" stroke-width="1.4" stroke-dasharray="6 5" marker-end="url(#arr-human)" stroke-linejoin="round"/>
+<text x="893" y="440" font-size="11.5" fill="#B4530A" font-weight="normal" text-anchor="middle" transform="rotate(-90 893 440)">stop &amp; escalate on WHAT</text>
+<rect x="40" y="686" width="880" height="162" rx="12" fill="#FFFFFF" stroke="#9AA3AC" stroke-width="1.2" />
+<text x="56" y="710" font-size="13" fill="#1F2933" font-weight="bold" text-anchor="start" letter-spacing="2">RETRY OR STOP?</text>
+<text x="56" y="734" font-size="13" fill="#1F5FBF" font-weight="bold" text-anchor="start" >HOW problem</text>
+<text x="166" y="734" font-size="13" fill="#1F2933" font-weight="normal" text-anchor="start" >criteria not met · bug · red test  →  retry, within the retry budget;</text>
+<text x="166" y="751" font-size="13" fill="#1F2933" font-weight="normal" text-anchor="start" >say what changed vs. the last try; keep the old failure on record.</text>
+<text x="56" y="776" font-size="13" fill="#B4530A" font-weight="bold" text-anchor="start" >WHAT problem</text>
+<text x="166" y="776" font-size="13" fill="#1F2933" font-weight="normal" text-anchor="start" >goal looks wrong · approach impossible · SPEC contradicts reality  →  stop, escalate to the human.</text>
+<text x="166" y="793" font-size="13" fill="#1F2933" font-weight="normal" text-anchor="start" >Unaccepted work stays outside the trust boundary; the accepted tier is untouched.</text>
+<text x="56" y="818" font-size="13" fill="#1F2933" font-weight="bold" text-anchor="start" >Six facts</text>
+<text x="166" y="818" font-size="13" fill="#1F2933" font-weight="normal" text-anchor="start" >reported separately, never inferred: edited · committed · launched · ran OK · verified · accepted.</text>
+<text x="166" y="835" font-size="13" fill="#1F2933" font-weight="normal" text-anchor="start" >No evidence → written as unknown. Same failure repeats → stop adding attempts; find the shared cause.</text>
+<rect x="950" y="100" width="290" height="560" rx="12" fill="#FFFFFF" stroke="#1F2933" stroke-width="1.5" />
+<text x="966" y="124" font-size="14" fill="#1F2933" font-weight="bold" text-anchor="start" letter-spacing="2">DOCS</text>
+<text x="1016" y="124" font-size="13" fill="#5C6670" font-weight="normal" text-anchor="start" >· durable state</text>
+<text x="966" y="144" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >ordered by who writes × how fast it changes</text>
+<text x="966" y="164" font-size="11" fill="#5C6670" font-weight="normal" text-anchor="start" >↑ slower · more trusted · human-written</text>
+<rect x="964" y="182" width="4" height="50" rx="2" fill="#B4530A"/>
+<text x="984" y="198" font-size="15" fill="#1F2933" font-weight="bold" text-anchor="start" >CHARTER</text>
+<text x="984" y="215" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >human · almost never</text>
+<text x="984" y="230" font-size="11.5" fill="#9AA3AC" font-weight="normal" text-anchor="start" >why · north star · hard constraints</text>
+<line x1="964" y1="239" x2="1226" y2="239" stroke="#D9DBD6" stroke-width="1"/>
+<rect x="964" y="246" width="4" height="50" rx="2" fill="#B4530A"/>
+<text x="984" y="262" font-size="15" fill="#1F2933" font-weight="bold" text-anchor="start" >DECISIONS</text>
+<text x="984" y="279" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >human-signed · append-only</text>
+<text x="984" y="294" font-size="11.5" fill="#9AA3AC" font-weight="normal" text-anchor="start" >ADRs: what, why, what was rejected</text>
+<line x1="964" y1="303" x2="1226" y2="303" stroke="#D9DBD6" stroke-width="1"/>
+<rect x="964" y="310" width="4" height="50" rx="2" fill="#B4530A"/>
+<text x="984" y="326" font-size="15" fill="#1F2933" font-weight="bold" text-anchor="start" >JOURNAL</text>
+<text x="984" y="343" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >human · daily</text>
+<text x="984" y="358" font-size="11.5" fill="#9AA3AC" font-weight="normal" text-anchor="start" >the story, for people re-entering</text>
+<line x1="964" y1="367" x2="1226" y2="367" stroke="#D9DBD6" stroke-width="1"/>
+<rect x="964" y="374" width="4" height="50" rx="2" fill="#1F5FBF"/>
+<text x="984" y="390" font-size="15" fill="#1F2933" font-weight="bold" text-anchor="start" >STATE</text>
+<text x="984" y="407" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >planner · live</text>
+<text x="984" y="422" font-size="11.5" fill="#9AA3AC" font-weight="normal" text-anchor="start" >one critical path · accept queue</text>
+<line x1="964" y1="431" x2="1226" y2="431" stroke="#D9DBD6" stroke-width="1"/>
+<rect x="964" y="438" width="4" height="50" rx="2" fill="#B4530A"/>
+<rect x="970" y="438" width="4" height="50" rx="2" fill="#1F5FBF"/>
+<text x="984" y="454" font-size="15" fill="#1F2933" font-weight="bold" text-anchor="start" >SPEC  per thread</text>
+<text x="984" y="471" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >human + planner · stable</text>
+<text x="984" y="486" font-size="11.5" fill="#9AA3AC" font-weight="normal" text-anchor="start" >goal · file boundary · criteria · escape</text>
+<line x1="964" y1="495" x2="1226" y2="495" stroke="#D9DBD6" stroke-width="1"/>
+<rect x="964" y="502" width="4" height="50" rx="2" fill="#1B7F5C"/>
+<rect x="970" y="502" width="4" height="50" rx="2" fill="#1F5FBF"/>
+<text x="984" y="518" font-size="15" fill="#1F2933" font-weight="bold" text-anchor="start" >LOG  per thread</text>
+<text x="984" y="535" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >agents · every ~2h</text>
+<text x="984" y="550" font-size="11.5" fill="#9AA3AC" font-weight="normal" text-anchor="start" >work log; current snapshot on top</text>
+<line x1="964" y1="559" x2="1226" y2="559" stroke="#D9DBD6" stroke-width="1"/>
+<rect x="964" y="566" width="4" height="50" rx="2" fill="#1F5FBF"/>
+<rect x="970" y="566" width="4" height="50" rx="2" fill="#1B7F5C"/>
+<text x="984" y="582" font-size="15" fill="#1F2933" font-weight="bold" text-anchor="start" >TASK / RESULT</text>
+<text x="984" y="599" font-size="12" fill="#5C6670" font-weight="normal" text-anchor="start" >planner / worker · one-off</text>
+<text x="984" y="614" font-size="11.5" fill="#9AA3AC" font-weight="normal" text-anchor="start" >work order · return envelope</text>
+<text x="966" y="648" font-size="11" fill="#5C6670" font-weight="normal" text-anchor="start" >↓ faster · disposable · machine-written</text>
+<rect x="950" y="686" width="290" height="162" rx="12" fill="none" stroke="#9AA3AC" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="966" y="712" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="start" >Any agent can be killed; the next one is</text>
+<text x="966" y="730" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="start" >rebuilt from these docs. Scratch and LOG</text>
+<text x="966" y="748" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="start" >can be dropped; CHARTER, DECISIONS and</text>
+<text x="966" y="766" font-size="12.5" fill="#5C6670" font-weight="normal" text-anchor="start" >signed outputs are the accepted tier.</text>
+<text x="966" y="784" font-size="12.5" fill="#1F2933" font-weight="bold" text-anchor="start" ></text>
+<text x="966" y="802" font-size="12.5" fill="#1F2933" font-weight="bold" text-anchor="start" >Output = acceptances per day,</text>
+<text x="966" y="820" font-size="12.5" fill="#1F2933" font-weight="bold" text-anchor="start" >not tokens burned.</text>
+</svg>

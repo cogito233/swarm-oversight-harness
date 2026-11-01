@@ -1,3 +1,5 @@
+> **Frozen Chinese original (v2.0.0, 2026-07-26).** The canonical, maintained version is the English one in the repo root / `skills/`. This copy may lag. · 中文原版存档，可能落后于英文正本。
+
 # Playbook · 项目复杂度必要性审计
 
 > **定位**：用于诊断一个 AI 驱动的软件、研究、benchmark 或数据生产项目中，哪些复杂度是目标与信任链真正要求的，哪些是架构选择、过早泛化、控制面债务或规模冲动制造的；产出是删减与固化决策，不是再设计一套更大的平台。

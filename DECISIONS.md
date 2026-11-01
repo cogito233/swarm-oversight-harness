@@ -1,11 +1,17 @@
 # DECISIONS（ADR · append-only）
 
-> 本仓库自己的决策台账：手册不变量的改动、§9 晋升闸的每次过闸都记一条。永不重写。
+> This repo's own decision log: every invariant change and every §9 promotion gets an entry. Append-only. (Entries before 2026-10-31 are in Chinese.)
 
-## 2026-07-26 · v2.0.0 从 swe-chains 吸收通用工作纪律
+## 2026-10-31 · v3.0.0 public release: English canon, plain terms, skills
+- Decided: publish as SuperSwarm Harness; English MANUAL is the single canonical source, Chinese kept as a frozen translation in docs/zh/; replace metaphor terms with plain ones; package the manual as five Agent Skills with templates inside the skills that use them; installation is agent-run via INSTALL.md.
+- Why: (1) outside readers could not parse the metaphor-heavy vocabulary; (2) skills are read by agents, which handle English at least as well, and reply in the user's language — so one English canon serves both audiences without two drifting copies (§8 single source); (3) "hand a repo path to an agent to install" is how users already adopt such tools; (4) DeepSeek's Super-agent (2026-10-31) made the runtime scheduling layer public and named long-term context and approval flows as open problems — this repo's focus.
+- Rejected: keeping two full canonical copies (zh + en) — guaranteed drift; names `docspine` (unclear at a glance) and `project-harness` (an earlier repo with the same name and an overlapping single-agent scope exists); a runtime/service layer — out of scope, the harness stays docs + loop + gates.
+- Affects: all downstream projects on upgrade (paths and terms; no protocol semantic change).
+
+## 2026-07-26 · v2.0.0 从 一个长期运行的研究 benchmark 项目 吸收通用工作纪律
 - 定了: 吸收五条跨 profile 成立的纪律：状态和建议不自动构成授权；修改、提交、启动、运行成功、独立验证、人工采纳分别报告；每个收口周期只有一条当前关键路径；重试保留旧失败且高影响重试重新确认范围；RESULT 先写结果与可复核证据，无法确认时写 `unknown`
-- 为什么: swe-chains 的长期运行实践证明，最大的普遍风险不是缺执行平台，而是 agent 活动冒充结果、建议扩张为授权、失败历史被重试覆盖、多条最高优先级争抢收口，以及无证据状态被推断为成功或失败。这五条可以直接降低人重建真实状态的认知负担
-- 否决了: 复制 swe-chains 的 schema、engine、完整状态机、机器许可、HANDOFF / AUTHORIZATION / VERIFY 新模板、固定扩量阶梯和 SWE 专属对象；通用手册只吸收纪律，不吸收执行平台
+- 为什么: 一个长期运行的研究 benchmark 项目 的长期运行实践证明，最大的普遍风险不是缺执行平台，而是 agent 活动冒充结果、建议扩张为授权、失败历史被重试覆盖、多条最高优先级争抢收口，以及无证据状态被推断为成功或失败。这五条可以直接降低人重建真实状态的认知负担
+- 否决了: 复制 一个长期运行的研究 benchmark 项目 的 schema、engine、完整状态机、机器许可、HANDOFF / AUTHORIZATION / VERIFY 新模板、固定扩量阶梯和 SWE 专属对象；通用手册只吸收纪律，不吸收执行平台
 - 影响 thread: 所有 profile 的 MANUAL 不变量；TASK / RESULT / PROJECT_SKELETON 模板。现有项目不全量回填历史记录，从下一次活跃更新开始采用
 
 ## 2026-07-02 · v1.1.0 认知减重：新词税预算制

@@ -1,3 +1,5 @@
+> **Frozen Chinese original (v2.0.0, 2026-07-26).** The canonical, maintained version is the English one in the repo root / `skills/`. This copy may lag. · 中文原版存档，可能落后于英文正本。
+
 # 项目骨架（复制即用）
 
 > **先 STEP-0 盘点，别整套硬铺**（手册 §7 STEP-0）：通用 MVP = `CHARTER · STATE · DECISIONS · JOURNAL`，**每个项目都要**；`threads/` 容器、`tasks/`、单源台账、文档治理只在 STEP-0 盘出"该 role 还没人填"时才补。已被治理的 repo 只补缺口。

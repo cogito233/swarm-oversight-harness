@@ -1,10 +1,22 @@
 # CHANGELOG
 
-> 版本语义（§9）：不变量改动 = major；profile / playbook / 模板增改 = minor；判例与措辞 = patch。
+> Versioning (MANUAL §9): invariant change = major; profile / skill / template change = minor; examples and wording = patch.
+> Entries before v3.0.0 are in Chinese (the manual was Chinese-only until then).
+
+## v3.0.0 · 2026-10-31 — first public release as SuperSwarm Harness
+
+- **Renamed** `agent-workflow` → **SuperSwarm Harness** (`superswarm-harness`).
+- **English is now the canonical manual** (`MANUAL.md`). The Chinese v2.0.0 originals are frozen in `docs/zh/` and may lag.
+- **Plain vocabulary**: plan agent → planner; execution agent → worker; 收口 → consolidate; 采纳 → accept; tiers canon/working/scratch → accepted/working/draft; 单源台账 → source of record; 对齐 ground truth → resync; 断路器/cycle 预算 → retry budget + stall check; 判例 → examples.
+- **Packaged as Agent Skills** (`skills/`): `superswarm-setup`, `superswarm-loop`, `superswarm-accept` (new), `superswarm-complexity-audit` and `superswarm-paper` (from `playbooks/`). Templates moved into the skills that use them.
+- **New**: `INSTALL.md` (agent-run install), `README_zh.md`, `LICENSE` (MIT), architecture diagrams in `assets/`.
+- Private project names anonymized.
+
+Migration: projects pinned to v1/v2 keep working (protocol semantics unchanged from v2.0.0). On upgrade, `templates/` → `skills/superswarm-setup/templates/` and `skills/superswarm-loop/templates/`; `playbooks/*` → `skills/superswarm-*`; CHARTER line becomes `built_against: superswarm-harness v3.0`. Existing docs using old Chinese terms do not need rewriting; frontmatter `tier: canon|scratch` reads as `accepted|draft`.
 
 ## v2.0.0 · 2026-07-26
 
-从 swe-chains 吸收跨 profile 成立的工作纪律，不复制执行平台。
+从 一个长期运行的研究 benchmark 项目 吸收跨 profile 成立的工作纪律，不复制执行平台。
 
 - **授权边界**：状态、上下文、人的问题和 agent 建议都不自动构成新的执行授权；新增成本、不可逆副作用、扩量或越过人闸时须明确范围
 - **阶段事实分离**：修改、提交、启动、运行成功、独立验证和人工采纳分别报告；无法确认时写 `unknown`

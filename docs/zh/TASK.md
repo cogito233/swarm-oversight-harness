@@ -1,3 +1,5 @@
+> **Frozen Chinese original (v2.0.0, 2026-07-26).** The canonical, maintained version is the English one in the repo root / `skills/`. This copy may lag. · 中文原版存档，可能落后于英文正本。
+
 # TASK <id>: <title>
 
 thread: T<n>-<slug>

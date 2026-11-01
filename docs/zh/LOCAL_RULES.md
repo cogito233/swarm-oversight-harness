@@ -1,3 +1,5 @@
+> **Frozen Chinese original (v2.0.0, 2026-07-26).** The canonical, maintained version is the English one in the repo root / `skills/`. This copy may lag. · 中文原版存档，可能落后于英文正本。
+
 # LOCAL_RULES（本地规则 · 上游化捕获点）
 
 > 角色见手册 §9「捕获」段。项目运行中长出的规则**只进这里**，不散进 README / 散文——散出去的规则 sweep 不到，永远上不了游。
