@@ -37,8 +37,9 @@ git submodule update --init --remote     # 协作者 clone 你的项目后，拉
   - `TASK.md` — 任务分发工单（plan → 执行 agent）
   - `RESULT.md` — 结果回执（执行 agent → plan）
   - `LOCAL_RULES.md` — 项目本地规则捕获点（每条标 `upstream-candidate` / `project-specific`，见手册 §9）
-- **`playbooks/`** — profile 特定的收口闸 playbook（慢层，跨项目不变）
+- **`playbooks/`** — profile 特定的收口闸与项目治理 playbook（慢层，跨项目不变）
   - `paper-writing.md` — 用 code agent 写研究 / benchmark 论文的「投稿前编辑 pass」（research profile）。可调用入口：skill `paper-writing`
+  - `project-complexity-audit.md` — 审计 AI 项目中的必要复杂度、偶然复杂度、过早泛化、控制面债务与单人拥有成本；含可直接复制的只读诊断 Prompt
 - **`examples/`** — 判例库：锚定已有原则的真实项目快照（描述性非规范性，契约见 `examples/README.md`）
 - **`DECISIONS.md` / `CHANGELOG.md`** — 本仓库自身的 ADR 台账与版本史（手册按自己定义的规则治理）
 
